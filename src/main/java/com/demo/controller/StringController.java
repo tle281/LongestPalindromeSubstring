@@ -15,6 +15,11 @@ public class StringController {
 	@Autowired
 	private StringService service;
 
+	/* 
+	 * api to retrieve all the full strings and their respective longest palindromic substrings 
+	 * from the db, or retrieve only the full strings and their substrings if full string match input
+	 */
+	
 	@GetMapping("/substrings")
 	public ResponseEntity<List<SubString>> get(@RequestParam(required = false) String str) {
 		try {
@@ -35,6 +40,11 @@ public class StringController {
 		}
 	}
 
+	
+	/* 
+	 * api to save both the input string and its longest palindromic substring to db
+	 */
+	
 	@PostMapping("/substrings")
 	public ResponseEntity<SubString> add(@RequestBody SubString string) {
 		try {
